@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Title.gd" type="Script" id=1]
+
+[node name="Title" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.129412, 0.14902, 0.247059, 1 )
+
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 540.0
+margin_right = 320.0
+margin_bottom = 560.0
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 540.0
+margin_right = 640.0
+margin_bottom = 560.0
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 704.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 560.0
+text = "Exit"
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
