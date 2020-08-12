@@ -2,7 +2,7 @@ Version 1.1b
 + Fixed bug where player could jump after falling off ground
 + Added velocity-based horizontal movement
 + Replaced world
-+ Improved title screen layout
++ Improved title screen
 
 Version 1.0b
 + Initial Release
