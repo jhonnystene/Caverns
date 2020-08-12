@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Title.gd" type="Script" id=1]
-[ext_resource path="res://img/ITCH-LOGO.PNG" type="Texture" id=2]
+[ext_resource path="res://PaperJohnnyEins-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://img/backdrop.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -16,14 +28,16 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.129412, 0.14902, 0.247059, 1 )
 
-[node name="Title Text" type="Sprite" parent="."]
-position = Vector2( 512, 100 )
-texture = ExtResource( 2 )
+[node name="backdrop" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+texture = ExtResource( 3 )
 
 [node name="Version label" type="Label" parent="."]
-margin_top = 586.0
-margin_right = 123.0
+margin_left = 5.0
+margin_top = 580.0
+margin_right = 137.0
 margin_bottom = 600.0
+custom_fonts/font = SubResource( 3 )
 text = "Beta Version 1.1b"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,6 +66,25 @@ margin_top = 540.0
 margin_right = 960.0
 margin_bottom = 560.0
 text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+margin_top = 20.0
+margin_right = 1024.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 1 )
+text = "Caverns"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Label"]
+margin_top = 60.0
+margin_right = 1024.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 2 )
+text = "Early Access"
+align = 1
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
