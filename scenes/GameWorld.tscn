@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://music/Ludum Dare 30 - Track 1.wav" type="AudioStream" id=1]
 [ext_resource path="res://src/GameWorld.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tiles/WorldTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://pickups/TestPickup.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 10000, 999, 0.1 )
@@ -40,4 +41,7 @@ position = Vector2( -16, 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 325 )
 shape = SubResource( 2 )
+
+[node name="TestPickup" parent="." instance=ExtResource( 5 )]
+position = Vector2( 802.107, -132.004 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

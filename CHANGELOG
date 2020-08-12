@@ -3,6 +3,8 @@ Version 1.1b
 + Added velocity-based horizontal movement
 + Replaced world
 + Improved title screen
++ Added test pickup
++ Window can now be resized
 
 Version 1.0b
 + Initial Release
