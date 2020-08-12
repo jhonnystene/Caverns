@@ -24,7 +24,7 @@ texture = ExtResource( 2 )
 margin_top = 586.0
 margin_right = 123.0
 margin_bottom = 600.0
-text = "Beta Version 1.1b"
+text = "Beta Version 1.0.1b"
 __meta__ = {
 "_edit_use_anchors_": false
 }

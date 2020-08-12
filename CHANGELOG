@@ -1,4 +1,4 @@
-Version 1.1b
+Version 1.0.1b
 + Fixed bug where player could jump after falling off ground
 + Added velocity-based horizontal movement
 + Replaced world
