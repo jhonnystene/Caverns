@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Title.gd" type="Script" id=1]
 [ext_resource path="res://PaperJohnnyEins-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://img/backdrop.png" type="Texture" id=3]
-
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 2 )
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tiles/WorldTiles.tres" type="TileSet" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -15,59 +14,36 @@ font_data = ExtResource( 2 )
 size = 32
 font_data = ExtResource( 2 )
 
-[node name="Title" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 96, 32 )
+
+[node name="Title" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0.129412, 0.14902, 0.247059, 1 )
-
-[node name="backdrop" type="Sprite" parent="."]
+[node name="Backdrop" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 texture = ExtResource( 3 )
 
-[node name="Version label" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 580.0
-margin_right = 137.0
-margin_bottom = 600.0
-custom_fonts/font = SubResource( 3 )
-text = "Beta Version 1.1b"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( -262144, 2, 0, -262143, 2, 2, -262130, 2, 0, -262129, 2, 2, -196608, 2, 65536, -196607, 2, 65538, -196594, 2, 65536, -196593, 2, 65538, -131072, 2, 65536, -131071, 2, 65538, -131058, 2, 65536, -131057, 2, 65538, -65536, 2, 65536, -65535, 2, 65538, -65522, 2, 65536, -65521, 2, 65538, 0, 2, 65536, 1, 2, 65538, 14, 2, 65536, 15, 2, 65538, 65536, 2, 65536, 65537, 2, 65538, 65550, 2, 65536, 65551, 2, 65538, 131072, 2, 65536, 131073, 2, 65538, 131086, 2, 65536, 131087, 2, 65538, 196608, 2, 65536, 196609, 2, 65538, 196622, 2, 65536, 196623, 2, 65538, 262144, 2, 65536, 262145, 2, 65538, 262158, 2, 65536, 262159, 2, 65538, 327680, 2, 65536, 327681, 2, 65538, 327694, 2, 65536, 327695, 2, 65538, 393216, 2, 65536, 393217, 2, 3, 393218, 2, 1, 393219, 2, 2, 393223, 2, 0, 393224, 2, 2, 393228, 2, 0, 393229, 2, 1, 393230, 2, 65539, 393231, 2, 65538, 458752, 2, 65536, 458753, 2, 65537, 458754, 2, 131075, 458755, 2, 65538, 458759, 2, 65536, 458760, 2, 65538, 458764, 2, 65536, 458765, 2, 65537, 458766, 2, 65537, 458767, 2, 65538, 524288, 2, 65536, 524289, 2, 131075, 524290, 2, 131075, 524291, 2, 65538, 524295, 2, 65536, 524296, 2, 65538, 524300, 2, 65536, 524301, 2, 131075, 524302, 2, 131075, 524303, 2, 65538, 589824, 2, 131072, 589825, 2, 131073, 589826, 2, 131073, 589827, 2, 131074, 589831, 2, 131072, 589832, 2, 131074, 589836, 2, 131072, 589837, 2, 131073, 589838, 2, 131073, 589839, 2, 131074 )
 
-[node name="CreditsButton" type="Button" parent="."]
-margin_left = 64.0
-margin_top = 540.0
-margin_right = 320.0
-margin_bottom = 560.0
-text = "Credits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 184.347, 330.552 )
 
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 540.0
-margin_right = 640.0
-margin_bottom = 560.0
-text = "Play"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
 
-[node name="ExitButton" type="Button" parent="."]
-margin_left = 704.0
-margin_top = 540.0
-margin_right = 960.0
-margin_bottom = 560.0
-text = "Exit"
-
-[node name="Label" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="."]
 margin_top = 20.0
 margin_right = 1024.0
 margin_bottom = 98.0
@@ -78,13 +54,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Label"]
+[node name="EarlyAccessLabel" type="Label" parent="TitleLabel"]
 margin_top = 60.0
 margin_right = 1024.0
 margin_bottom = 99.0
 custom_fonts/font = SubResource( 2 )
 text = "Early Access"
 align = 1
-[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[node name="VersionLabel" type="Label" parent="TitleLabel"]
+margin_left = 5.0
+margin_top = 560.0
+margin_right = 137.0
+margin_bottom = 580.0
+custom_fonts/font = SubResource( 3 )
+text = "Beta Version 1.1b"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayCreditsLabel" type="Label" parent="TitleLabel"]
+margin_left = 306.815
+margin_top = 240.22
+margin_right = 580.815
+margin_bottom = 292.22
+custom_fonts/font = SubResource( 4 )
+text = "PLAY               CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2( 352.005, 611.252 )
+shape = SubResource( 5 )
+
+[node name="CreditsArea" type="Area2D" parent="."]
+position = Vector2( 321.086, -2.37842 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreditsArea"]
+position = Vector2( 352.005, 611.252 )
+shape = SubResource( 5 )
+[connection signal="body_entered" from="PlayArea" to="." method="_on_PlayArea_body_entered"]
+[connection signal="body_entered" from="CreditsArea" to="." method="_on_CreditsArea_body_entered"]
