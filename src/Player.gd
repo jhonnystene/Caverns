@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var maxMoveSpeed = 100
+var maxMoveSpeed = 800
 
 var accelFrames = 5
 var accel = maxMoveSpeed / accelFrames
@@ -9,7 +9,7 @@ var decelFrames = 25
 var decel = maxMoveSpeed / decelFrames
 
 var velocity = Vector2(0, 0)
-var gravity = 6
+var gravity = 60
 var jumpSpeed = gravity * 30
 
 func is_on_floor():
