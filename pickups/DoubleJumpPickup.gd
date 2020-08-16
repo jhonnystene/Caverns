@@ -1,5 +1,5 @@
 extends Node2D
 
 func do_pickup(body):
-	print("Test pickup picked up by: " + body.name)
+	body.currentPickup = 1
 	queue_free()
