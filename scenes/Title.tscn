@@ -14,11 +14,11 @@ font_data = ExtResource( 2 )
 size = 32
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 96, 32 )
 
 [node name="Title" type="Node2D"]
@@ -71,7 +71,7 @@ margin_left = 136.118
 margin_top = 259.835
 margin_right = 1086.12
 margin_bottom = 311.835
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "PLAY                                            CREDITS"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,13 +82,13 @@ position = Vector2( -195.03, 413.844 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
 position = Vector2( 352.005, 611.252 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CreditsArea" type="Area2D" parent="."]
 position = Vector2( 516.116, 416.222 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreditsArea"]
 position = Vector2( 352.005, 611.252 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="PlayArea" to="." method="_on_PlayArea_body_entered"]
 [connection signal="body_entered" from="CreditsArea" to="." method="_on_CreditsArea_body_entered"]

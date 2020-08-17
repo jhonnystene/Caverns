@@ -3,11 +3,13 @@ Version 1.1b
 + Title screen now also a playable level
 + Bug fixes
 + Tweaked player movement speed
-+ Added debug menu
++ World is now underground
 + Added double jumping
 + Added parallax background
-+ World is now underground
-+ Add controller input
++ Added controller input
++ Added jetpack
++ Added debug menu (press Q or Select)
++ Added levels
 
 Version 1.0.1b
 + Fixed bug where player could jump after falling off ground

@@ -1,5 +1,8 @@
 extends Node2D
 
+func complete():
+	get_tree().change_scene("res://scenes/Title.tscn")
+
 func _on_Area2D_body_entered(body):
 	if("Player" in body.name):
 		body.position = Vector2(51, 2278)
@@ -16,6 +19,8 @@ func _process(delta):
 		pickupName = "Double Jump"
 	elif($Player.currentPickup == 2):
 		pickupName = "Grappling Hook"
+	elif($Player.currentPickup == 3):
+		pickupName = "Jetpack"
 	else:
 		pickupName = "Unknown (TELL ME IF YOU SEE THIS)"
 	
@@ -26,6 +31,7 @@ func _process(delta):
 	$UILayer/DebugInfo/PlayerJumpCountLabel.text = "Jump Max: " + str($Player.maxChainedJumps) + ", Left: " + str($Player.jumps)
 	$UILayer/DebugInfo/PlayerVelocityLabel.text = "VX: " + str($Player.velocity.x) + ", VY: " + str($Player.velocity.y)
 	$UILayer/DebugInfo/FPSLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) + ", Delta: " + str(delta)
+	$UILayer/DebugInfo/JetpackTimeLabel.text = "Jetpack Time Left: " + str($Player.jetpackTimeLeft)
 	
 	if(Input.is_action_just_pressed("ui_toggle_debug")):
 		$UILayer/DebugInfo.visible = !$UILayer/DebugInfo.visible

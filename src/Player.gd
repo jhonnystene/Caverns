@@ -3,7 +3,10 @@ extends KinematicBody2D
 # 0 - None
 # 1 - Double Jump
 # 2 - Grapple Hook
+# 3 - Jetpack
 var currentPickup = 0
+var jetpackTimeLeft = 0
+var jetpackTimeMax = 0.5 # In seconds
 
 var maxMoveSpeed = 600
 
@@ -56,14 +59,19 @@ func _physics_process(delta):
 	var checkJustPressed = true
 	
 	if(is_on_floor()):
+		jetpackTimeLeft = jetpackTimeMax
 		jumps = maxChainedJumps
 		velocity.y = 0
-		if(Input.is_action_pressed("ui_up")):
+		if(Input.is_action_pressed("ui_up") && currentPickup != 3):
 			velocity.y -= jumpSpeed
 			jumps -= 1
 			checkJustPressed = false
 	
-	if(Input.is_action_just_pressed("ui_up") && checkJustPressed):
+	if((Input.is_action_pressed("ui_up") && currentPickup == 3 && jetpackTimeLeft > 0) or (Input.is_action_pressed("force_jetpack") && jetpackTimeLeft > 0)):
+		jetpackTimeLeft -= delta
+		velocity.y -= jumpSpeed / 10
+	
+	if(Input.is_action_just_pressed("ui_up") && checkJustPressed && currentPickup != 3):
 		if(jumps > 0):
 			if(velocity.y > 0):
 				velocity.y = -jumpSpeed
