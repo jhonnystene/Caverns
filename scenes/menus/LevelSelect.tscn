@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/LevelSelect.gd" type="Script" id=1]
+[ext_resource path="res://scenes/uielements/SubUIBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/BigFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/uielements/LevelSelectPage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/ButtonFont.tres" type="DynamicFont" id=5]
+
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubUIBase" parent="." instance=ExtResource( 2 )]
+
+[node name="TitleLabel" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 3 )
+text = "LEVEL SELECT"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Worlds" type="Node2D" parent="."]
+
+[node name="World0" parent="Worlds" instance=ExtResource( 4 )]
+
+[node name="World1" parent="Worlds" instance=ExtResource( 4 )]
+margin_left = 1024.0
+margin_right = 1024.0
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 265.0
+margin_right = 110.0
+margin_bottom = 335.0
+custom_fonts/font = ExtResource( 5 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="."]
+margin_left = 914.0
+margin_top = 265.0
+margin_right = 984.0
+margin_bottom = 335.0
+custom_fonts/font = ExtResource( 5 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/WorldTemplate.gd" type="Script" id=1]
+[ext_resource path="res://fonts/PaperJohnnyEins-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://img/other/backdrop.png" type="Texture" id=3]
+[ext_resource path="res://music/Ludum Dare 30 - Track 1.wav" type="AudioStream" id=4]
+[ext_resource path="res://tiles/WorldTiles.tres" type="TileSet" id=5]
+[ext_resource path="res://worlditems/Player.tscn" type="PackedScene" id=6]
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5000, 10 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="WorldTemplate" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 11.6735 ]
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.388
+autoplay = true
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 10000, 10000 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+
+[node name="Death Boundary" type="Area2D" parent="."]
+position = Vector2( 22.6274, 3729.42 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Boundary"]
+position = Vector2( 0, 325 )
+shape = SubResource( 1 )
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="DebugInfo" type="Control" parent="UILayer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerPositionLabel" type="Label" parent="UILayer/DebugInfo"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "X: N/A, Y: N/A"
+
+[node name="PlayerJumpCountLabel" type="Label" parent="UILayer/DebugInfo"]
+margin_top = 14.0
+margin_right = 158.0
+margin_bottom = 28.0
+text = "Jump Max: N/A, Left: N/A"
+
+[node name="PlayerVelocityLabel" type="Label" parent="UILayer/DebugInfo"]
+margin_top = 28.0
+margin_right = 123.0
+margin_bottom = 42.0
+text = "VX: N/A, VY: N/A"
+
+[node name="FPSLabel" type="Label" parent="UILayer/DebugInfo"]
+margin_top = 42.0
+margin_right = 128.0
+margin_bottom = 56.0
+text = "FPS: N/A, Delta: N/A"
+
+[node name="JetpackTimeLabel" type="Label" parent="UILayer/DebugInfo"]
+margin_top = 56.0
+margin_right = 136.0
+margin_bottom = 70.0
+text = "Jetpack time left: N/A"
+
+[node name="PickupLabel" type="Label" parent="UILayer"]
+margin_top = 570.0
+margin_right = 228.0
+margin_bottom = 600.0
+custom_fonts/font = SubResource( 2 )
+text = "Current Pickup: N/A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Death Boundary" to="." method="_on_Area2D_body_entered"]

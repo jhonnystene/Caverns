@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/ButtonFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Title.gd" type="Script" id=2]
+[ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/BigFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/uielements/UIBase.tscn" type="PackedScene" id=5]
+
+[node name="Title" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBase" parent="." instance=ExtResource( 5 )]
+
+[node name="Labels" type="Control" parent="UIBase"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionLabel" type="Label" parent="UIBase/Labels"]
+margin_left = 7.0
+margin_top = 570.0
+margin_right = 150.0
+margin_bottom = 600.0
+custom_fonts/font = ExtResource( 3 )
+text = "Version 1.2b"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="UIBase/Labels"]
+margin_right = 1024.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 4 )
+text = "Caverns"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="UIBase"]
+margin_left = 162.0
+margin_top = 303.009
+margin_right = 462.0
+margin_bottom = 403.009
+custom_fonts/font = ExtResource( 1 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="UIBase"]
+margin_left = 562.0
+margin_top = 303.009
+margin_right = 862.0
+margin_bottom = 403.009
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UIBase/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="UIBase/ExitButton" to="." method="_on_ExitButton_pressed"]

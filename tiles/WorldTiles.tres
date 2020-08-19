@@ -1,8 +1,11 @@
 [gd_resource type="TileSet" load_steps=50 format=2]
 
-[ext_resource path="res://img/StoneTiles.png" type="Texture" id=1]
-[ext_resource path="res://img/ShitTextures.png" type="Texture" id=2]
-[ext_resource path="res://img/FloorSprites.png" type="Texture" id=3]
+[ext_resource path="res://img/tilesets/StoneTiles.png" type="Texture" id=1]
+[ext_resource path="res://img/tilesets/ShitTextures.png" type="Texture" id=2]
+[ext_resource path="res://img/tilesets/FloorSprites.png" type="Texture" id=3]
+
+
+
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )

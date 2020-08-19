@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Caverns"
-run/main_scene="res://scenes/Title.tscn"
-boot_splash/image="res://img/logo.png"
+run/main_scene="res://scenes/menus/Title.tscn"
+boot_splash/image="res://img/ui/logo.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.129412, 0.14902, 0.247059, 1 )
